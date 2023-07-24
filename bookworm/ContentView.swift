@@ -6,16 +6,28 @@
 //
 
 import SwiftUI
+// import UIKit
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            ZStack {
+                Color("backgroundGreen")
+                    .ignoresSafeArea()
+                VStack {
+                    Image("BookWorm")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding(.all)
+                    HStack {
+                        // Button to navigate to mainView
+                        NavigationLink(destination: MainView()) {
+                            Text("Go to main page")
+                        }.buttonStyle(CustomButtonStyle())
+                    }
+                }
+            }
         }
-        .padding()
     }
 }
 
